@@ -36,6 +36,10 @@ namespace EjemploHerencia
 
             ISaltoConPatas IMmiBabieca = babieca;
             Console.WriteLine($"Patas que usa para saltar: {IMmiBabieca.NumeroPatas()}");
+            Console.WriteLine();
+            Lagartija juancho = new Lagartija("Juancho");
+
+            juancho.GetNombre();
         }
 
         interface IMamiferosTerrestres
@@ -53,23 +57,30 @@ namespace EjemploHerencia
             int NumeroPatas();
         }
 
-         class Mamiferos
+        abstract class Animales
+        {
+            public void Respirar()
+            {
+                Console.WriteLine("Soy capaz de respirar;");
+            }
+
+            public abstract void GetNombre();
+        }
+
+        class Mamiferos:Animales
         {
 
             public Mamiferos(string nombre) => nombreSerVivo = nombre;
-            public void Respirtar()
-            {
-                Console.WriteLine("Soy capaz de respirar");
-            }
+        
 
             public void CuidarCrias()
             {
                 Console.WriteLine("Soy capaz de cuidar mis crias hasta que se valgan por si solas");
             }
 
-            public void GetNombre()
+            public override void  GetNombre()
             {
-                Console.WriteLine($"El nombre del ser vivo es {nombreSerVivo} ");
+                Console.WriteLine($"El nombre del ser mamifero es {nombreSerVivo} ");
             }
 
             public virtual void Pensar()
@@ -143,6 +154,21 @@ namespace EjemploHerencia
             {
                 Console.WriteLine("Soy capaz de nadar");
             }
+        }
+
+        class Lagartija : Animales
+        {
+            public Lagartija(string nombre)
+            {
+                this.nombreReptil = nombre;
+            }
+
+            public override void GetNombre()
+            {
+                Console.WriteLine($"El nombre el reptil es {nombreReptil}" );
+            }
+
+            private string nombreReptil;
         }
     }
 }

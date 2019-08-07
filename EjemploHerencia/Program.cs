@@ -39,7 +39,15 @@ namespace EjemploHerencia
             Console.WriteLine();
             Lagartija juancho = new Lagartija("Juancho");
 
+
+
+            juancho.Respirar();
+            Juan.Respirar();
+            Console.WriteLine();
+
             juancho.GetNombre();
+            Juan.GetNombre();
+
         }
 
         interface IMamiferosTerrestres
@@ -169,6 +177,24 @@ namespace EjemploHerencia
             }
 
             private string nombreReptil;
+        }
+
+        class Chimpance : Gorila
+        {
+            private Chimpance(string nombreChimpance) : base(nombreChimpance) { }
+        }
+
+        class Adolescente : Humano
+        {
+            public Adolescente(string nombreAdolescente) : base(nombreAdolescente) { }
+
+            public override void Pensar()
+            {
+                Console.WriteLine("Puedo pensar pero no con clariada");
+
+            }
+
+
         }
     }
 }
